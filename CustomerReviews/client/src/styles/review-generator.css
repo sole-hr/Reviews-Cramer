@@ -1,0 +1,195 @@
+.accordion {
+  box-sizing: border-box;
+  width: 25%;
+  padding-top: 40px;
+  font-family: "Nike TG", Oswald, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.card-header {
+  background-color: white;
+  cursor: pointer;
+  height: 80px;
+  border-bottom: 0px;
+}
+
+#shippingInfo {
+  color: #111;
+  font-weight: 500;
+  font-size: 20px !important;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 0.8rem;
+}
+
+#reviews {
+  color: #111;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-top: 0.8rem;
+}
+
+#reviewStar-arrow-div {
+  padding: 0 4px;
+  text-align: right;
+  position: absolute;
+  top: 11px;
+
+  right: 0;
+}
+
+.review-arrow {
+  display: inline-block;
+  position: relative;
+  width: 18px;
+  height: 8px;
+  top: 14px;
+  right: 10px;
+}
+
+.avg-stars-button {
+  display: inline-block;
+  position: relative;
+  left: 20;
+  top: 5px;
+  padding-left: 16px;
+}
+
+.modal-body {
+  width: 1131px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10rem;
+}
+
+.review-star {
+  font-size: 20px;
+  position: relative;
+  top: 11px;
+  right: 16px;
+}
+
+.card {
+  outline: none;
+  border-radius: 0px;
+  position: relative;
+  display: flex;
+  border-left: none;
+  border-right: none;
+}
+
+.box-title {
+  padding: 0 4px;
+  text-align: left;
+}
+
+.shipping-arrow-div {
+  right: 12px;
+  position: absolute;
+  top: 29px;
+}
+
+.modal-review-item {
+  max-width: 100%;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  position: relative;
+}
+
+.modal-header {
+  height: 350px;
+  border-bottom: 0;
+}
+
+.stars-avg {
+  margin-bottom: 57px;
+  width: 369px;
+  height: 70px;
+  display: flex;
+  top: 16px;
+  position: relative;
+}
+
+.card-body-stars {
+  display: inline-block;
+}
+
+#write-review {
+  padding-bottom: 4px;
+  position: relative;
+  right: 200px;
+  top: 2rem;
+}
+
+#more-reviews {
+  position: relative;
+  right: 18px;
+}
+
+#username-date {
+  font-size: 13px;
+  color: grey;
+
+  position: relative;
+  top: 6rem;
+}
+
+#item-description {
+  position: relative;
+  flex-wrap: wrap;
+  width: 79%;
+  top: -25px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.review-title {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 40px;
+}
+
+.star-items {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  top: -13px;
+}
+
+.all-review-stars {
+  position: relative;
+}
+
+.review-item-right {
+  padding-left: 20%;
+}
+
+/* #img-box-review {
+  width: 500px;
+  position: relative;
+  height: 100px;
+  display: flex;
+
+  left: -39rem;
+} */
+
+.modal-image-review {
+  height: 60px;
+  width: 60px;
+}
+
+#shoe-name-review {
+  font: inherit;
+  width: 100%;
+  position: relative;
+  top: -64px;
+  right: -67px;
+}
+
+#shoe-price-review {
+  position: relative;
+  left: 10rem;
+  top: -67px;
+}
