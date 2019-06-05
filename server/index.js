@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyparser = require("body-parser");
 let app = express();
-let port = 3008;
+let port = 3000;
 
 const mongo = require("../database/index.js");
 

@@ -1,9 +1,15 @@
 const mongoose = require("mongoose");
+// const reviews = require("../../shoe-data-generator/shoeData.json");
+// const uri = require("../password.js");
+const dbinfo = require('./atlasinfo.js');
 
-//const reviews = require("../../shoe-data-generator/shoeData.json");
-const uri = require("../password.js");
-
-mongoose.connect(uri, { useNewUrlParser: true });
+mongoose.connect(dbinfo.uri, {useNewUrlParser: true}, (err) => {
+  if(err){
+      console.log('error connecting to mongodb: ', err);
+  } else {
+      console.log("successful connection to mongodb");
+  }
+});
 
 let reviewSchema = mongoose.Schema({
   sku: String,
@@ -41,15 +47,15 @@ let findAll = (obj, callBack) => {
   });
 };
 
-// // customerReview.create(reviews, (err)=>{
-// //   if (err){
-// //     console.log(err)
-// //   }else{
-// //     console.log('success')
-// //   }
-// // })
+// customerReview.create(reviews, (err)=>{
+//   if (err){
+//     console.log(err)
+//   }else{
+//     console.log('success')
+//   }
+// })
 
-// //save(reviews)
+// save(reviews)
 
 module.exports.findAll = findAll;
 module.exports.save = save;
