@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 // const reviews = require("../../shoe-data-generator/shoeData.json");
-const uri = require("../password.js");
+// const uri = require("../password.js");
 // const dbinfo = require('./atlasinfo.js');
 
-mongoose.connect(dbinfo.uri, {useNewUrlParser: true}, (err) => {
+mongoose.connect('mongodb://localhost/sdc', {useNewUrlParser: true}, (err) => {
   if(err){
       console.log('error connecting to mongodb: ', err);
   } else {
@@ -49,7 +49,7 @@ let findAll = (obj, callBack) => {
     if (err) {
       console.log("I AM GETTING AN ERROR");
     } else {
-      console.log("sucess retreiving database stuff");
+      console.log("sucess retrieving database stuff");
       callBack(null, docs);
     }
   });
