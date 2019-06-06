@@ -23,4 +23,4 @@ const dataGenerator = () => {
 }
 
 dataGenerator();
-// mongoimport --db sdc --collection sole --type csv --file rawdata.csv --fields user.string\(\),date.string\(\),stars.string\(\),title.string\(\)description.string\(\)
+// mongoimport --db sdc --collection sole --type csv --file rawdata.csv --headerline
