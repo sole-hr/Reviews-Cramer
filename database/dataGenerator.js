@@ -9,13 +9,14 @@ let randomNum = Math.ceil(Math.random() * 5);
 // user, date, stars, title, description
 const dataGenerator = () => {
     let data;
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < 10000000; i++){
         data = `${faker.fake("{{name.findName}}")}, ${faker.fake("{{date.recent}}")}, ${randomNum}, ${faker.fake("{{name.jobTitle}}")}, ${faker.fake("{{lorem.sentence}}")}\n`;
     
         fs.appendFile('./rawdata.csv', data, (err)=>{
             if(err){
+                // console.log(err);
                 console.log(err, "ya borked it");
-            }else{
+            } else {
                 console.log('not borked:');
             }
         })
