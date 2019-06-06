@@ -25,7 +25,6 @@ let reviewSchema = mongoose.Schema({
     {
       user: String,
       date: String,
-      stars: String,
       title: String,
       description: String
     }

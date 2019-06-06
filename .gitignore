@@ -60,3 +60,15 @@ typings/
 # next.js build output
 .next
 database/atlasinfo.js
+
+# data from faker
+database/rawdata1.csv
+database/rawdata2.csv
+database/rawdata3.csv
+database/rawdata4.csv
+database/rawdata5.csv
+database/rawdata6.csv
+database/rawdata7.csv
+database/rawdata8.csv
+database/rawdata9.csv
+database/rawdata10.csv
