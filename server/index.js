@@ -35,6 +35,28 @@ app.get("/reviews", (req, res) => {
 //   }
 // );
 
+
+// // GET method route
+// app.get('/api/reviews/', function (req, res) {
+//   res.send('GET request to the homepage')
+// })
+
+// // POST method route
+// app.post('/api/reviews/', function (req, res) {
+//   res.send('POST request to the homepage')
+// })
+
+// // PUT method route
+// app.put('/api/reviews/', function (req, res) {
+//   res.send('PUT request to the homepage')
+// })
+
+// // DELETE method route
+// app.delete('/api/reviews/', function (req, res) {
+//   res.send('DELETE request to the homepage')
+// })
+
+
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });

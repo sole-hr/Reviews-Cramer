@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 // const reviews = require("../../shoe-data-generator/shoeData.json");
-// const uri = require("../password.js");
-const dbinfo = require('./atlasinfo.js');
+const uri = require("../password.js");
+// const dbinfo = require('./atlasinfo.js');
 
 mongoose.connect(dbinfo.uri, {useNewUrlParser: true}, (err) => {
   if(err){
@@ -10,6 +10,14 @@ mongoose.connect(dbinfo.uri, {useNewUrlParser: true}, (err) => {
       console.log("successful connection to mongodb");
   }
 });
+
+// mongoose.connect(dbinfo.uri, {useNewUrlParser: true}, (err) => {
+//   if(err){
+//       console.log('error connecting to mongodb: ', err);
+//   } else {
+//       console.log("successful connection to mongodb");
+//   }
+// });
 
 let reviewSchema = mongoose.Schema({
   sku: String,
