@@ -1,5 +1,4 @@
 const faker = require('faker');
-const axios = require('axios');
 const fs = require('fs');
 
 
@@ -14,13 +13,14 @@ const dataGenerator = () => {
         console.clear();
         console.log('Loading initiated...stand by....', j, 'of 10');
         for(let i = 0; i < 1000000; i++){
-            console.clear();
-            console.log(`Loading initiated...stand by.... ${j} of 10...thank you for your patience...%${Math.floor(1000000 % i)}`)
+            // if(i % 10000 === 0){
+                // console.clear();
+                // console.log(`Loading initiated...stand by....${j} of 10...thank you for your patience...${((i % 1000000) / 100000).toFixed(1)}%...`)
+            // }
             data = `${sku++}, ${faker.fake("{{name.findName}}")}, ${faker.fake("{{date.recent}}")}, ${faker.fake("{{name.jobTitle}}")}, ${faker.fake("{{lorem.sentence}}")}\n`;
         
             fs.appendFileSync(`./rawdata${j}.csv`, data, (err)=>{
                 if(err){
-                    // console.log(err);
                     // console.log(err, "ya borked it");
                 } else {
                     // console.log('not borked:');
@@ -31,4 +31,5 @@ const dataGenerator = () => {
 }
 
 dataGenerator();
-// mongoimport --db sdc --collection sole --type csv --file rawdata10.csv --headerline
+// headerline = sku,user,date,title,description
+// mongoimport --db sdc --collection sole --type csv --file rawdata9.csv --headerline

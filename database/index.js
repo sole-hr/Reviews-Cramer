@@ -1,7 +1,4 @@
 const mongoose = require("mongoose");
-// const reviews = require("../../shoe-data-generator/shoeData.json");
-// const uri = require("../password.js");
-// const dbinfo = require('./atlasinfo.js');
 
 mongoose.connect('mongodb://localhost/sdc', {useNewUrlParser: true}, (err) => {
   if(err){
@@ -11,27 +8,15 @@ mongoose.connect('mongodb://localhost/sdc', {useNewUrlParser: true}, (err) => {
   }
 });
 
-// mongoose.connect(dbinfo.uri, {useNewUrlParser: true}, (err) => {
-//   if(err){
-//       console.log('error connecting to mongodb: ', err);
-//   } else {
-//       console.log("successful connection to mongodb");
-//   }
-// });
-
 let reviewSchema = mongoose.Schema({
-  sku: String,
-  reviews: [
-    {
-      user: String,
-      date: String,
-      title: String,
-      description: String
-    }
-  ]
+  sku: Number,
+  user: String,
+  date: String,
+  title: String,
+  description: String
 });
 
-let customerReview = mongoose.model("customerReview", reviewSchema);
+let customerReview = mongoose.model("customerReview", reviewSchema, 'sole');
 
 let save = (file, callBack) => {
   customerReview.insertMany(file, (err, res) => {
@@ -64,5 +49,6 @@ let findAll = (obj, callBack) => {
 
 // save(reviews)
 
-module.exports.findAll = findAll;
-module.exports.save = save;
+// module.exports.findAll = findAll;
+// module.exports.save = save;
+module.exports = customerReview;

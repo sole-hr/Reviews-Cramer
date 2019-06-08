@@ -3,7 +3,6 @@ const cors = require("cors");
 const bodyparser = require("body-parser");
 let app = express();
 let port = 3000;
-
 const mongo = require("../database/index.js");
 
 app.use(cors());
@@ -40,12 +39,13 @@ app.use(express.static(__dirname + "/../client/dist"));
 // 127.0.0.1:3000/api/reviews/38
 app.get("/api/reviews/:sku", (req, res) => {
   let shoe = req.params.sku;
-  mongo.findOne({}, (err, reviews) => {
+  shoe = parseInt(shoe);
+  mongo.findOne({'sku': shoe}, (err, data) => {
     if (err) {
-      console.log("error inside findall: ", err);
+      console.log("error inside findOne: ", err);
     } else {
-      console.log("server side get complete");
-      res.send(reviews[0]);
+      console.log('data:', data);
+      res.send(data);
     }
   });
 });
