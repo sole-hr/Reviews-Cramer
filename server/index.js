@@ -37,9 +37,10 @@ app.use(express.static(__dirname + "/../client/dist"));
 
 
 // // GET method route
-app.get("/api/reviews", (req, res) => {
-  res.header("Access-Control-Allow-Origin");
-  mongo.findAll({}, (err, reviews) => {
+// 127.0.0.1:3000/api/reviews/38
+app.get("/api/reviews/:sku", (req, res) => {
+  let shoe = req.params.sku;
+  mongo.findOne({}, (err, reviews) => {
     if (err) {
       console.log("error inside findall: ", err);
     } else {
@@ -51,8 +52,10 @@ app.get("/api/reviews", (req, res) => {
 
 // POST method route
 // insert a record in collection
-app.post('/api/reviews', function (req, res) {
-
+app.post('/api/review/:sku', function (req, res) {
+  // shoe = req.params.sku
+  // review = req.body
+  // mongo.create({"user": "review.user", })
   console.log('body is ',req.body);
 
   mongo.create(req.body)
@@ -66,7 +69,7 @@ app.post('/api/reviews', function (req, res) {
 
 // // PUT method route
 // mongo.update one
-app.put('/api/reviews', function (req, res) {
+app.put('/api/review', function (req, res) {
 
   console.log('body is ',req.body);
 
@@ -87,7 +90,7 @@ app.put('/api/reviews', function (req, res) {
 
 // // DELETE method route
 // findone and deletye
-app.delete('/api/delete', function (req, res) {
+app.delete('/api/delete/:sku', function (req, res) {
 
   console.log('body is ',req.body);
   mongo.remove({_id: id})

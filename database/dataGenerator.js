@@ -6,20 +6,27 @@ const fs = require('fs');
 // random number 
 // let randomNum = Math.ceil(Math.random() * 5);
 
-// user, date, title, description
+// sku #,user, date, title, description
 const dataGenerator = () => {
     let data;
-    for(let i = 0; i < 1000000; i++){
-        data = `${faker.fake("{{name.findName}}")}, ${faker.fake("{{date.recent}}")}, ${faker.fake("{{name.jobTitle}}")}, ${faker.fake("{{lorem.sentence}}")}\n`;
-    
-        fs.appendFileSync('./rawdata10.csv', data, (err)=>{
-            if(err){
-                // console.log(err);
-                // console.log(err, "ya borked it");
-            } else {
-                // console.log('not borked:');
-            }
-        })
+    for(let j = 0; j < 10; j++){
+        let sku = 0;
+        console.clear();
+        console.log('Loading initiated...stand by....', j, 'of 10');
+        for(let i = 0; i < 1000000; i++){
+            console.clear();
+            console.log(`Loading initiated...stand by.... ${j} of 10...thank you for your patience...%${Math.floor(1000000 % i)}`)
+            data = `${sku++}, ${faker.fake("{{name.findName}}")}, ${faker.fake("{{date.recent}}")}, ${faker.fake("{{name.jobTitle}}")}, ${faker.fake("{{lorem.sentence}}")}\n`;
+        
+            fs.appendFileSync(`./rawdata${j}.csv`, data, (err)=>{
+                if(err){
+                    // console.log(err);
+                    // console.log(err, "ya borked it");
+                } else {
+                    // console.log('not borked:');
+                }
+            })
+        }
     }
 }
 
