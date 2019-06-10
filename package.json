@@ -42,6 +42,8 @@
     "jquery": "^3.4.1",
     "mongo-seeding": "^3.1.1",
     "mongoose": "^5.5.10",
+    "pg": "^7.11.0",
+    "pg-pool": "^2.0.6",
     "popper.js": "^1.15.0",
     "rc-slider": "^8.6.11",
     "react": "^16.8.6",

@@ -72,3 +72,5 @@ database/rawdata7.csv
 database/rawdata8.csv
 database/rawdata9.csv
 database/rawdata0.csv
+
+database/postgresInfo.js
