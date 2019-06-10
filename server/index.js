@@ -12,37 +12,12 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(express.static(__dirname + "/../client/dist"));
 
-// app.get("/reviews", (req, res) => {
-//   res.header("Access-Control-Allow-Origin");
-//   db.findAll({}, (err, reviews) => {
-//     if (err) {
-//       console.log("error inside findall: ", err);
-//     } else {
-//       console.log("server side get complete");
-//       res.send(reviews[0]);
-//     }
-//   });
-// });
-
-// app.get(
-//   "graph.facebook.com / 17873440459141021 / top_media ? user_id = 17841405309211844 & fields=id, media_type, comments_count, like_count",
-//   (req, res) => {
-//     if (err) {
-//       console.log("error retrieving insta", err);
-//     } else {
-//       console.log(req);
-//       res.send("got it");
-//     }
-//   }
-// );
-
-
 // // GET method route to return reviews related to sku number
 // 127.0.0.1:3000/api/reviews/38
 app.get("/api/reviews/:sku", (req, res) => {
-  
   let shoe = req.params.sku;
   shoe = parseInt(shoe);
+
   let myQuery = `SELECT * FROM sole WHERE sku = ${shoe};`;
   db.query(myQuery, (err, data) => {
     if (err) {
@@ -56,17 +31,19 @@ app.get("/api/reviews/:sku", (req, res) => {
 
 // POST method route
 // add a review
-app.post('/api/reviews/:sku', function (req, res) {
+app.post('/api/reviews/:sku', (req, res) => {
   let shoe = req.params.sku;
   shoe = parseInt(shoe);
-
-  let myQuery = `INSERT INTO sole (sku, user, date, title, description) VALUES (${shoe}, "Chad Cramer", "Monday June 10 2019", "software developer", "lorem ipsum");`;
+  let myQuery = `INSERT INTO sole (sku, "user", date, title, description) VALUES (${shoe},'${req.body.user}','${req.body.date}','${req.body.title}','${req.body.description}')`;
+  //`INSERT INTO sole (sku, user, date, title, description) VALUES (10, "chad", "lorem", "lorem", "lorem");`
+  //`INSERT INTO sole (description) VALUES ("lorem");`
+  console.log('query query:', myQuery);
   db.query(myQuery, (err, data) => {
     if (err) {
-      console.log("error getting reviews: ", err);
+      console.log("error posting a review: ", err);
     } else {
       console.log('success returning data from postgreSQL');
-      res.send(data.rows);
+      res.status(201).send('success creating a review', shoe);
     }
   });
 })
