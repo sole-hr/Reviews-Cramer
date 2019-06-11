@@ -43,7 +43,7 @@ app.post('/api/reviews/:sku', (req, res) => {
       console.log("error posting a review: ", err);
     } else {
       console.log('success returning data from postgreSQL');
-      res.status(201).send('success creating a review', shoe);
+      res.status(201).send('success creating a review');
     }
   });
 })
