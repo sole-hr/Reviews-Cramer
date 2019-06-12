@@ -74,3 +74,5 @@ database/rawdata9.csv
 database/rawdata0.csv
 
 database/postgresInfo.js
+
+soleKey.pem
